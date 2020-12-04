@@ -27,18 +27,20 @@ print("Your mission is to find the treasure.\n\n")
 
 # https://www.draw.io/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Treasure%20Island%20Conditional.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1oDe4ehjWZipYRsVfeAx2HyB7LCQ8_Fvi%26export%3Ddownload
 
-direction = input("You see a path which forks before you.  Type 'left' or 'right' to choose which path to follow.\n")
-if direction == "left":
+direction = input("You see a path which forks before you.  Type 'left' or 'right' to choose which path to follow.\n\n")
+if direction == "right":
     print("The path quickly leads to a deadend and a boulder falls on your head, killing you.\nGame Over!")
 else:
-    water = input("You follow the path and come to a lake.  You can swim or wait for a boat.  Type 'swim' or 'wait'.\n")
+    water = input(
+        "You follow the path and come to a lake.  You can swim or wait for a boat.  Type 'swim' or 'wait'.\n\n"
+    )
     if water == "swim":
         print(
             "You start swimming in the lake and you don't make it far before a giant alligator surfaces and chomps you to death.\nGame Over!"
         )
     else:
         door = input(
-            "You wait for a boat, and when it arrives it ferries you to a small island.  You find a wall with 3 doors, one red, one blue, and one yellow. Which door do you try to open?  Type 'blue', 'red', or 'yellow'.\n"
+            "You wait for a boat, and when it arrives it ferries you to a small island.  You find a wall with 3 doors, one red, one blue, and one yellow. Which door do you try to open?  Type 'blue', 'red', or 'yellow'.\n\n"
         )
         if door == "red":
             print("The door's handle is coated in a swift-acting poison and you keel over and die.\nGame Over!")
