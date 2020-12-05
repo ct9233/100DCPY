@@ -6,3 +6,4 @@ bill_with_tip = float(bill_amount) + (float(bill_amount) * ((int(percent_tip) / 
 calculated_split = round(bill_with_tip / int(split_number), 2)
 formatted_split = format(calculated_split, ".2f")
 print(f"Very good.  Each person should pay: ${formatted_split}")
+input("\nPress Enter to Exit...")

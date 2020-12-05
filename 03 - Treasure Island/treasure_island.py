@@ -50,3 +50,4 @@ else:
             )
         else:
             print("You have made a choice which opens the door to great treasure!\nYou Win!")
+input("\nPress Enter to Exit...")
