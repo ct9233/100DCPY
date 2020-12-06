@@ -85,5 +85,5 @@ for number in numbers:
 
 random.shuffle(password)
 string_password = "".join(password)
-print(string_password)
+print(f"\nYour password is: {string_password}")
 input("\nPress Enter to Exit...")
