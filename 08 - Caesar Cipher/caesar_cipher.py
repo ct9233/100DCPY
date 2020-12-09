@@ -27,15 +27,6 @@ alphabet = [
     "z",
 ]
 
-from art import logo
-
-print(logo)
-
-direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
-text = input("Type your message:\n").lower()
-shift = int(input("Type the shift number:\n"))
-
-
 def caesar(original_text, shift_amount, encoding_direction):
     original_indexes = []
     transformed_indexes = []
@@ -69,4 +60,21 @@ def caesar(original_text, shift_amount, encoding_direction):
     print(f"The {encoding_direction}d output is: {''.join(returned_text)}")
 
 
-caesar(text, shift, direction)
+from art import logo
+
+print(logo)
+
+continue_decoding = True
+
+while continue_decoding:
+    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+    text = input("Type your message:\n").lower()
+    shift = int(input("Type the shift number:\n"))
+
+    caesar(text, shift, direction)
+
+    result = input("Type 'yes' if you want to go again. Or type 'no' to exit.\n")
+    if result == "no":
+        continue_decoding = False
+        print("Goodbye.")
+
