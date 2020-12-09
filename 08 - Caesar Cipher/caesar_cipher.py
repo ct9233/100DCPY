@@ -45,7 +45,26 @@ def encrypt(original_text, shift_amount):
             encrypted_indexes.append(index + shift_amount - 26)
     for index in encrypted_indexes:
         encrypted_text.append(alphabet[index])
-    print(f"The encrypted output is: {''.join(encrypted_text)}")
+    print(f"The encoded output is: {''.join(encrypted_text)}")
 
 
-encrypt(text, shift)
+def decrypt(encrypted_text, shift_amount):
+    encrypted_indexes = []
+    decrypted_indexes = []
+    decrypted_text = []
+    for letter in encrypted_text:
+        encrypted_indexes.append(alphabet.index(letter))
+    for index in encrypted_indexes:
+        if index - shift_amount > 0:
+            decrypted_indexes.append(index - shift_amount)
+        else:
+            decrypted_indexes.append(index - shift_amount + 26)
+    for index in decrypted_indexes:
+        decrypted_text.append(alphabet[index])
+    print(f"The decoded output is: {''.join(decrypted_text)}")
+
+
+if direction == "encode":
+    encrypt(text, shift)
+elif direction == "decode":
+    decrypt(text, shift)
