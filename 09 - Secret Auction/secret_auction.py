@@ -3,11 +3,13 @@ from art import logo
 
 bid_tracking = []
 continue_bidding = True
+highest_bid = 0
+winner = ""
 
 print(logo)
 print("Welcome to the bidding for the secret auction!\n")
 
-while continue_bidding == True:
+while continue_bidding:
     bidder_name = input("Enter your name: ")
     bid_amount = input("Enter the bid amount: $")
 
@@ -23,10 +25,6 @@ while continue_bidding == True:
     else:
         os.system("cls")
 
-# print(f"{bid_tracking[0]['bid']}")
-
-highest_bid = 0
-winner = ""
 for each in bid_tracking:
     this_bid = int(bid_tracking[bid_tracking.index(each)]["bid"])
     if this_bid > highest_bid:
