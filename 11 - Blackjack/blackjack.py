@@ -47,12 +47,17 @@ def blackjack_round():
         if player_hit == "y":
             user_cards.append(random.choice(cards))
             if sum(user_cards) > 21:
-                print(f"\nPlayer cards: {user_cards}.  Score: {sum(user_cards)}  Bust! Player lost.\n")
-                round_continues = False
-                another_round()
+                if 11 in user_cards:
+                    user_cards = [1 if x==11 else x for x in user_cards]
+                else:
+                    print(f"\nPlayer cards: {user_cards}.  Score: {sum(user_cards)}  Bust! Player lost.\n")
+                    round_continues = False
+                    another_round()
         else:
             while sum(computer_cards) < 16:
                 computer_cards.append(random.choice(cards))
+                if sum(computer_cards) > 21 and 11 in computer_cards:
+                    computer_cards = [1 if x==11 else x for x in computer_cards]
             if sum(computer_cards) > 21:
                 print(f"\nComputer cards: {computer_cards}.  Score: {sum(computer_cards)}  Bust! Computer lost.\n")
                 round_continues = False
