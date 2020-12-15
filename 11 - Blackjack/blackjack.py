@@ -29,6 +29,11 @@ def blackjack_round():
         user_cards.append(random.choice(cards))
         computer_cards.append(random.choice(cards))
 
+    if sum(user_cards) == 22:
+        user_cards[1] = 1
+    if sum(computer_cards) == 22:
+        user_cards[1] = 1
+
     print(f"\nComputer's first card: {computer_cards[0]}")
 
     while round_continues:
