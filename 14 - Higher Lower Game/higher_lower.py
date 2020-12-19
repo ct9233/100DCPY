@@ -14,7 +14,7 @@ while game_continues == True:
     index_a = index_a if compare_a != "" else random.randrange(0, len(data))
     index_b = random.randrange(0, len(data))
     while index_b == index_a:
-            index_b = random.randrange(0, len(data))
+        index_b = random.randrange(0, len(data))
     compare_a = compare_a if compare_a != "" else data[index_a]
     compare_b = data[index_b]
 
@@ -26,23 +26,19 @@ while game_continues == True:
     print(f"Against B: {compare_b['name']}, a {compare_b['description']}, from {compare_b['country']}.")
     player_choice = input("Who has more followers? Type 'A' or 'B': ").lower()
 
-    if player_choice == "a" and compare_a['follower_count'] > compare_b['follower_count']:
+    opposite = "b" if player_choice == "a" else "a"
+    player_value = "compare_" + player_choice + "['follower_count']"
+    opposing_value = "compare_" + opposite + "['follower_count']"
+
+    os.system("cls")
+
+    if eval(player_value) > eval(opposing_value):
         score += 1
-        # print(f"You're right! Current score: {score}")
-    elif player_choice == "a" and compare_a['follower_count'] < compare_b['follower_count']:
-        os.system('cls')
+        compare_a = data[index_b]
+        index_a = index_b
+    else:
         print(logo)
         print(f"Sorry, that's wrong. Final score: {score}")
         game_continues = False
 
-    if player_choice == "b" and compare_b['follower_count'] > compare_a['follower_count']:
-        score += 1
-        # print(f"You're right! Current score: {score}")
-    elif player_choice == "b" and compare_b['follower_count'] < compare_a['follower_count']:
-        os.system('cls')
-        print(logo)
-        print(f"Sorry, that's wrong. Final score: {score}")
-        game_continues = False
-
-    compare_a = data[index_b]
-    index_a = index_b
+input("\nPress Enter to exit...")
