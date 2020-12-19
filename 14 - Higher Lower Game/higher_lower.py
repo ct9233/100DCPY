@@ -30,6 +30,8 @@ while game_continues == True:
         score += 1
         # print(f"You're right! Current score: {score}")
     elif player_choice == "a" and compare_a['follower_count'] < compare_b['follower_count']:
+        os.system('cls')
+        print(logo)
         print(f"Sorry, that's wrong. Final score: {score}")
         game_continues = False
 
@@ -37,6 +39,8 @@ while game_continues == True:
         score += 1
         # print(f"You're right! Current score: {score}")
     elif player_choice == "b" and compare_b['follower_count'] < compare_a['follower_count']:
+        os.system('cls')
+        print(logo)
         print(f"Sorry, that's wrong. Final score: {score}")
         game_continues = False
 
