@@ -44,22 +44,24 @@ while machine_on == True:
             print(f"Here is your {user_choice}. Enjoy!\n")
 
     def check_ingredients():
-        choice_ingredients = "MENU['" + user_choice + "']['ingredients']"
+        sufficient_amounts = True
+        
+        for k in resources:
+            try:
+                eval("MENU['" + user_choice + "']['ingredients']['" + k + "']")
+            except KeyError:
+                continue
+            else:
+                if (eval("MENU['" + user_choice + "']['ingredients']['" + k + "']") > eval("resources['" + k + "']")):
+                    print(f"Sorry there is not enough {k}.")
+                    sufficient_amounts = False
+                    break
+                elif k == "money":
+                    break
 
-        if eval(choice_ingredients + "['water']") > resources["water"]:
-            print("Sorry there is not enough water.")
-            return
-        if (
-            "['" + user_choice + "']['ingredients']['milk']" in MENU
-            and eval(choice_ingredients + "['milk']") > resources["milk"]
-        ):
-            print("Sorry there is not enough milk.")
-            return
-        if eval(choice_ingredients + "['coffee']") > resources["coffee"]:
-            print("Sorry there is not enough coffee.")
-            return
-        else:
+        if sufficient_amounts == True:
             process_order()
+
 
     if user_choice == "off":
         machine_on = False
