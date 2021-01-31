@@ -28,7 +28,8 @@ while machine_on == True:
     if user_choice == "off":
         machine_on = False
     elif user_choice == "report":
-        print(coffee_ui.report())
+        coffee_ui.report()
+        money_machine.report()
     elif menu_choice != None:
         check_ingredients()
 
