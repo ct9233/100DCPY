@@ -18,8 +18,21 @@ screen = Screen()
 
 screen.colormode(255)
 
-turtle.speed("fastest")
+turtle.speed(10)
+turtle.penup()
+turtle.hideturtle()
+turtle.setpos(-230, -200)
+turn = 90
 
+for i in range(10):
+    for j in range(9):
+        turtle.dot(20, random.choice(color_list))
+        turtle.forward(50)
+    turtle.dot(20, random.choice(color_list))
+    turtle._rotate(turn)
+    turtle.forward(50)
+    turtle._rotate(turn)
+    turn -= 180
 
 
 screen.exitonclick()
