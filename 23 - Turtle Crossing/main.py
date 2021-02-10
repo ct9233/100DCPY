@@ -25,3 +25,15 @@ while game_is_on:
         car_ticker = 0
         car_manager.create_car()
     car_manager.move_cars()
+    
+
+    for car in car_manager.cars:
+        if player.distance(car) < 20:
+            game_is_on = False
+
+    if player.ycor() > 280:
+        player.set_start()
+        car_manager.level_up()
+
+
+screen.exitonclick()

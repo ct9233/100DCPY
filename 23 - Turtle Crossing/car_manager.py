@@ -9,6 +9,7 @@ MOVE_INCREMENT = 10
 class CarManager():
     def __init__(self):
         self.cars = []
+        self.car_speed = STARTING_MOVE_DISTANCE
 
     def create_car(self):
         random_y = random.randrange(-240, 250)
@@ -21,5 +22,8 @@ class CarManager():
 
     def move_cars(self):
         for car in range(len(self.cars)):
-            new_x = self.cars[car].xcor() - STARTING_MOVE_DISTANCE
+            new_x = self.cars[car].xcor() - self.car_speed
             self.cars[car].goto(new_x, self.cars[car].ycor())
+
+    def level_up(self):
+        self.car_speed += MOVE_INCREMENT
