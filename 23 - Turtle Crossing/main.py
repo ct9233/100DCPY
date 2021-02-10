@@ -11,6 +11,7 @@ screen.tracer(0)
 
 player = Player()
 car_manager = CarManager()
+scoreboard = Scoreboard()
 
 screen.listen()
 screen.onkey(player.move_up, "Up")
@@ -34,6 +35,9 @@ while game_is_on:
     if player.ycor() > 280:
         player.set_start()
         car_manager.level_up()
+        scoreboard.increase_level()
+
+scoreboard.game_over()
 
 
 screen.exitonclick()
