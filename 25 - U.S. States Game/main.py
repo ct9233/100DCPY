@@ -14,7 +14,6 @@ states = pandas.read_csv("50_states.csv")
 game_continues = True
 score = 0
 correct_guesses = []
-learning_list = []
 
 while game_continues:
     turtle_writer.goto(0, 0)
@@ -33,9 +32,7 @@ while game_continues:
                 correct_guesses.append(i)
                 score += 1
 
-for i in states.state:
-    if i not in correct_guesses:
-        learning_list.append(i)
+learning_list = [i for i in states.state if i not in correct_guesses]
 
 pandas.DataFrame(learning_list).to_csv("learning_list.csv")
 
