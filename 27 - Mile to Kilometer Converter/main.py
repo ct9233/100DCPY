@@ -1,5 +1,10 @@
 from tkinter import *
 
+def calculate_conversion():
+    miles = float(input.get())
+    km = miles * 1.689
+    converted_number.config(text=f"{km}")
+
 
 window = Tk()
 window.title("Mile to Kilometer Conversion")
@@ -20,7 +25,7 @@ converted_number.grid(column=2, row=2)
 km_label = Label(text="Km")
 km_label.grid(column=3, row=2)
 
-button = Button(text="Convert")
+button = Button(text="Convert", command=calculate_conversion)
 button.grid(column=2, row=3)
 
 window.mainloop()
