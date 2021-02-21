@@ -24,9 +24,22 @@ window.config(padx=100, pady=50, bg=YELLOW)
 
 canvas = Canvas(width=200, height=224, bg=YELLOW, highlightthickness=0)
 tomato_img = PhotoImage(file="tomato.png")
+
 canvas.create_image(100, 109, image=tomato_img)
 canvas.create_text(100, 130, text="00:00", fill="white", font=(FONT_NAME, 35, "bold"))
-canvas.pack()
+canvas.grid(column=2, row=2)
+
+title_text = Label(text="Timer", bg=YELLOW, fg=GREEN, font=(FONT_NAME, 52, "bold"))
+title_text.grid(column=2, row=1)
+
+start_button = Button(text="Start", bg="white", fg="black", padx=32, pady=3, font=("Tahoma", 14, "normal"), bd=0)
+start_button.grid(column=1, row=3)
+
+reset_button = Button(text="Reset", bg="white", fg="black", padx=32, pady=3, font=("Tahoma", 14, "normal"), bd=0)
+reset_button.grid(column=3, row=3)
+
+progress_checkmarks = Label(text="✓", bg=YELLOW, fg=GREEN, font=(FONT_NAME, 28, "bold"))
+progress_checkmarks.grid(column=2, row=4)
 
 
 window.mainloop()
