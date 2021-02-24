@@ -21,6 +21,7 @@ def generate_password():
     password = "".join(password_list)
     password_input.delete(0, END)
     password_input.insert(0, password)
+    pyperclip.copy(password)
 
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
