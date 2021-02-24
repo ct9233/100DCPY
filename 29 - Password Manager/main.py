@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 
 WINDOW_COLOR = "#3d4d80"
 
@@ -6,10 +7,20 @@ WINDOW_COLOR = "#3d4d80"
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save():
-    with open("data.txt", "a") as file:
-        file.write(f"{website_input.get()}  --  {username_input.get()}  --  {password_input.get()}\n")
-    website_input.delete(0, END)
-    password_input.delete(0, END)
+    website = website_input.get()
+    username = username_input.get()
+    password = password_input.get()
+
+    if len(website) == 0 or len(password) == 0:
+        messagebox.showinfo(title="Cannot proceed", message="Please make sure no fields have been left empty.")
+    else:
+        is_ok = messagebox.askokcancel(title=f"{website}", message=f"These are the details entered: \nEmail: {username} " f"\nPassword: {password} \nIs it ok to save?")
+
+        if is_ok:
+            with open("data.txt", "a") as file:
+                file.write(f"{website}  --  {username}  --  {password}\n")
+            website_input.delete(0, END)
+            password_input.delete(0, END)
 
 # ---------------------------- UI SETUP ------------------------------- #
 
