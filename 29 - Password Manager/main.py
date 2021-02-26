@@ -40,13 +40,19 @@ def save():
     if len(website) == 0 or len(password) == 0:
         messagebox.showinfo(title="Cannot proceed", message="Please make sure no fields have been left empty.")
     else:
-        with open("data.json", "r") as file:
-            data = json.load(file)
+        try:
+            with open("data.json", "r") as file:
+                data = json.load(file)
+        except FileNotFoundError:
+            with open("data.json", "w") as file:
+                json.dump(new_data, file, indent=4)
+        else:
             data.update(new_data)
-        with open("data.json", "w") as file:
-            json.dump(data, file, indent=4)
-        website_input.delete(0, END)
-        password_input.delete(0, END)
+            with open("data.json", "w") as file:
+                json.dump(data, file, indent=4)
+        finally:
+            website_input.delete(0, END)
+            password_input.delete(0, END)
 
 # ---------------------------- UI SETUP ------------------------------- #
 
