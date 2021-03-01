@@ -3,9 +3,13 @@ import random
 import pandas
 
 BACKGROUND_COLOR = "#b1ddc6"
-data = pandas.read_csv("data/french_words.csv")
-word_list = data.to_dict(orient="records")
 current_word = {}
+
+try:
+    data = pandas.read_csv("data/words_to_learn.csv")
+except FileNotFoundError:
+    data = pandas.read_csv("data/french_words.csv")
+word_list = data.to_dict(orient="records")
 
 
 def new_word():
@@ -21,6 +25,12 @@ def flip_card():
     canvas.itemconfig(card_display, image=card_back_img)
     canvas.itemconfig(card_title, text="English", fill="white")
     canvas.itemconfig(card_word, text=current_word["English"], fill="white")
+
+def remove_word():
+    word_list.remove(current_word)
+    new_list = pandas.DataFrame.from_dict(word_list)
+    new_list.to_csv("data/words_to_learn.csv", index=False)
+    new_word()
 
 
 # ----------------------------- UI Setup -----------------------------  #
@@ -47,7 +57,7 @@ wrong_button.config(bd=0)
 wrong_button.grid(row=1, column=0)
 
 right_image = PhotoImage(file="images/right.png")
-right_button = Button(image=right_image, highlightthickness=0, command=new_word)
+right_button = Button(image=right_image, highlightthickness=0, command=remove_word)
 right_button.config(bd=0)
 right_button.grid(row=1, column=1)
 
