@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
 import requests
+from datetime import datetime
 
 load_dotenv("C:/data/.env")
 
@@ -37,9 +38,12 @@ headers = {
 
 create_pixel_endpoint = f"{graph_endpoint}/graph1"
 
+# date = datetime(year=2021, month=3, day=13)
+today = datetime.now()
+
 create_pixel_config = {
-    "date": "20210312",
-    "quantity": "3.4",
+    "date": today.strftime("%Y%m%d"),
+    "quantity": "1.2",
 }
 
 response = requests.post(url=create_pixel_endpoint, json=create_pixel_config, headers=headers)
