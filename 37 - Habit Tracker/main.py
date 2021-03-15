@@ -46,5 +46,19 @@ create_pixel_config = {
     "quantity": "1.2",
 }
 
-response = requests.post(url=create_pixel_endpoint, json=create_pixel_config, headers=headers)
+# response = requests.post(url=create_pixel_endpoint, json=create_pixel_config, headers=headers)
+# print(response.text)
+
+update_pixel_endpoint = f"{pixela_endpoint}/{username}/graphs/graph1/{today.strftime('%Y%m%d')}"
+
+update_pixel_data = {
+    "quantity": "2.2",
+}
+
+response = requests.put(url=update_pixel_endpoint, json=update_pixel_data, headers=headers)
 print(response.text)
+
+
+# response = requests.delete(url=update_pixel_endpoint, headers=headers)
+# print(response.text)
+
