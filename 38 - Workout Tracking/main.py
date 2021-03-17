@@ -1,8 +1,7 @@
 import os
 from dotenv import load_dotenv
 import requests
-import json
-
+from datetime import datetime
 
 load_dotenv("C:/data/.env")
 
@@ -20,10 +19,10 @@ user_exercises = input("Which excercises did you complete? ")
 
 exercise_config = {
     "query": user_exercises,
-    "gender": "male",
-    "weight_kg": 68,
-    "height_cm": 177,
-    "age": 45,
+    "gender": os.getenv("GENDER"),
+    "weight_kg": os.getenv("WEIGHT_KG"),
+    "height_cm": os.getenv("HEIGHT_CM"),
+    "age": os.getenv("AGE"),
 }
 
 response = requests.post(EXERCISE_ENDPOINT, json=exercise_config, headers=headers)
@@ -31,3 +30,9 @@ response.raise_for_status()
 exercise_data = response.json()
 
 print(exercise_data)
+
+today_date = datetime.now().strftime("%d/%m/%Y")
+now_time = datetime.now().strftime("%X")
+
+print(today_date)
+print(now_time)
