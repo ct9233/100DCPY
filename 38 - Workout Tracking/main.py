@@ -16,8 +16,10 @@ headers = {
 
 EXERCISE_ENDPOINT = "https://trackapi.nutritionix.com/v2/natural/exercise"
 
+user_exercises = input("Which excercises did you complete? ")
+
 exercise_config = {
-    "query": "did 45 pushups",
+    "query": user_exercises,
     "gender": "male",
     "weight_kg": 68,
     "height_cm": 177,
