@@ -44,6 +44,6 @@ for exercise in exercise_data["exercises"]:
         }
     }
 
-sheety_response = requests.post(sheety_endpoint, json=sheety_inputs)
+sheety_response = requests.post(sheety_endpoint, json=sheety_inputs, auth=(os.getenv("WKOUT_USER"), os.getenv("WKOUT_PASS")))
 
 print(sheety_response.text)
