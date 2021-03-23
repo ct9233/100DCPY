@@ -17,3 +17,18 @@ class FlightSearch:
         results = response.json()["locations"]
         code = results[0]["code"]
         return code
+
+    def check_flights(self, origin_city_code, destination_city_code, from_time, to_time):
+        headers = {"apikey": tequila_api_key}
+        query = {
+            "fly_from": origin_city_code,
+            "fly_to": destination_city_code,
+            "date_from": from_time.strftime("%d/%m/%Y"),
+            "date_to": to_time.strftime("%d/%m/%Y"),
+            "nights_in_dst_from": 7,
+            "nights_in_dst_to": 21,
+            "flight_type": "round",
+            "one_for_city": 1,
+            "max_stopovers": 1,
+            "curr": "USD"
+        }
