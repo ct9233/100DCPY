@@ -9,9 +9,8 @@ flight_search = FlightSearch()
 
 origin_city_iata = "ORD"
 
-for row in sheet_data:
-    if row["iataCode"] == "":
-        flight_search = FlightSearch()
+if sheet_data[0]["iataCode"] == "":
+    for row in sheet_data:
         row["iataCode"] = flight_search.get_destination_code(row["city"])
     data_manager.destination_data = sheet_data
     data_manager.update_destination_codes()
