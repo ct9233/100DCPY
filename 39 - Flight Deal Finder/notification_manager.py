@@ -17,7 +17,7 @@ class NotificationManager:
     def send_sms(self, message):
         message = self.client.messages.create(
             body=message,
-            from=twilio_from,
+            from_=twilio_from,
             to=twilio_to
         )
         print(message.sid)
