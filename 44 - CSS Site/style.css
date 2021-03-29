@@ -1,51 +1,61 @@
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Merriweather&family=Oswald&display=swap');
 
 body {
-    margin: 0;
-    text-align: center;
-    font-family: 'Oswald', sans-serif;
+	margin: 0;
+	text-align: center;
+    font-family: 'Merriweather', serif;
 }
 
 h1 {
     margin-top: 0;
-    font-family: 'Kaushan Script', cursive;
+	font-family: 'Kaushan Script', cursive;
 }
 
 h2 {
-    font-family: 'Merriweather', serif;
+    font-family: 'Oswald', sans-serif;
 }
 
 h3 {
-    font-family: 'Merriweather', serif;
+    font-family: 'Oswald', sans-serif;
 }
 
 .top-container {
-    background-color: #008891;
-    position: relative;
-    padding-top: 100px;
+	background-color: #008891;
+	position: relative;
+	padding-top: 100px;
 }
 
 .top-cloud {
-    position: absolute;
-    right: 15%;
-    top: 10%;
+	position: absolute;
+	right: 15%;
+	top: 10%;
 }
 
 .bottom-cloud {
-    position: absolute;
-    left: 20%;
-    bottom: 55%;
+	position: absolute;
+	left: 20%;
+	bottom: 55%;
 }
 
 .middle-container {
-    background-color: #00587a;
-    height: 200px;
-    width: 200px;
+	background-color: #00587a;
+    padding: 20px;
 }
 
 .bottom-container {
-    background-color: #0f3057;
-    height: 200px;
-    width: 200px;
+	background-color: #0f3057;
 }
 
+.footer-link {
+    display: inline-block;
+    padding: 35px 20px 15px;
+}
+
+.bottom-container p {
+    margin: 0;
+    padding: 5px;
+}
+
+.icon-img {
+    height: 150px;
+}
