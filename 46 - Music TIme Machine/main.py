@@ -44,3 +44,7 @@ for song in song_names:
         song_uris.append(uri)
     except IndexError:
         print(f"{song} not found in Spotify.")
+
+playlist = sp.user_playlist_create(user=user_id, name=f"{date} Billboard 100", public=False)
+
+sp.playlist_add_items(playlist_id=playlist["id"], items=song_uris)
