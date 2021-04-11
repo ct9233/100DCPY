@@ -15,3 +15,12 @@ soup = BeautifulSoup(response.content, "lxml")
 price = soup.find(id="priceblock_ourprice").get_text()
 price_number = float(price.split("$")[1])
 print(price_number)
+
+coupon = soup.find(id="vpcButton")
+coupon_details = ''
+try:
+    coupon_details = coupon.contents[5].get_text()
+except AttributeError:
+    pass
+if coupon_details != '':
+    print(coupon_details)
