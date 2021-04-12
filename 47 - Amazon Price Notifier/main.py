@@ -38,14 +38,14 @@ message = ''
 if price_number < BUY_PRICE:
     message = message + f"{title} is now {price}\n"
 if coupon_details != '':
-    message = message + coupon_details
+    message = message + f"Coupon available: {coupon_details}"
 
 if message != '':
     with smtplib.SMTP(smtp_address, port=587) as connection:
         connection.starttls()
-        result = connection.login(send_address, send_password)
+        connection.login(send_address, send_password)
         connection.sendmail(
             from_addr=send_address,
             to_addrs=to_address,
-            msg=f"Subject:Amazon Price Notification!\n\n{message}\n{url}"
+            msg=f"Subject:Amazon Price Notification\n\n{message}\n{url}"
         )
