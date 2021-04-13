@@ -31,14 +31,15 @@ coupon = soup.find(id="vpcButton")
 coupon_details = ''
 try:
     coupon_details = coupon.contents[5].get_text()
+    coupon_amount = float(coupon_details.split("$")[1].split(" ")[0])
 except AttributeError:
     pass
 
 message = ''
 if price_number < BUY_PRICE:
-    message = message + f"{title} is now {price}\n"
-if coupon_details != '':
-    message = message + f"Coupon available: {coupon_details}"
+    message = message + f"{title}\n\n is now: {price}"
+elif coupon_details != '' and price_number - coupon_amount < BUY_PRICE:
+    message = message + f"{title}\n\n is now: {price}\n\n Discounted with coupon:\n {coupon_details}"
 
 if message != '':
     with smtplib.SMTP(smtp_address, port=587) as connection:
