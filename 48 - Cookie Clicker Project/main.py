@@ -14,5 +14,15 @@ upgrade_check_time = time.time() + 5
 while True:
     cookie.click()
 
+    if time.time() >= upgrade_check_time:
+        player_money = int(driver.find_element_by_id("money").text.replace(",", ""))
+        upgrade_items = driver.find_elements_by_css_selector("#store b")
+        
+        for item in upgrade_items:
+            print(item.text)
+        upgrade_check_time = time.time() + 5
+
     if time.time() > game_time_limit:
+        cookies_per_sec = driver.find_element_by_id("cps").text
+        print(cookies_per_sec)
         break
