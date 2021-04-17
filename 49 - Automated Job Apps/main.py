@@ -15,4 +15,10 @@ driver.get("https://www.linkedin.com/jobs/search/?currentJobId=2485157619&f_AL=t
 sign_in_button = driver.find_element_by_link_text("Sign in")
 sign_in_button.click()
 
-time.sleep()
+time.sleep(5)
+
+email_field = driver.find_element_by_id("username")
+email_field.send_keys(account_email)
+password_field = driver.find_element_by_id("password")
+password_field.send_keys(account_password)
+password_field.send_keys(Keys.ENTER)
