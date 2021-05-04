@@ -50,6 +50,18 @@ class InternetSpeedTwitterBot:
         time.sleep(2)
         password.send_keys(Keys.ENTER)
 
+        time.sleep(5)
+        tweet_compose = self.driver.find_element_by_xpath('//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div/div/div[2]/div/div[2]/div[1]/div/div/div/div[2]/div[1]/div/div/div/div/div/div/div/div/div/div[1]/div/div/div/div[2]/div/div/div/div')
+
+        tweet = f"Hey Internet Provider, why is my connection speed only {self.down} Down/{self.up} Up when I am paying for {PROMISED_DOWN} Down/{PROMISED_UP} Up?!"
+        tweet_compose.send_keys(tweet)
+        time.sleep(3)
+
+        tweet_button = self.driver.find_element_by_xpath('//*[@id="react-root"]/div/div/div[2]/main/div/div/div/div/div/div[2]/div/div[2]/div[1]/div/div/div/div[2]/div[4]/div/div/div[2]/div[3]')
+        tweet_button.click()
+
+        time.sleep(2)
+        self.driver.quit()
 
 bot = InternetSpeedTwitterBot(chrome_driver_path)
 
