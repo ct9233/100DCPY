@@ -29,7 +29,20 @@ class InstaFollower:
         password.send_keys(Keys.ENTER)
 
     def find_followers(self):
-        pass
+        time.sleep(5)
+        self.driver.get(f"https://www.instagram.com/{FOLLOW_ACCOUNT}")
+
+        time.sleep(2)
+        followers = self.driver.find_element_by_xpath('//*[@id="react-root"]/section/main/div/header/section/ul/li[2]/a')
+        followers.click()
+
+        time.sleep(2)
+        self.driver.find_element_by_xpath("/html/body/div[5]/div/div/div[2]")
+
+        for _ in range(10):
+            self.driver.find_element('/html/body/div[5]/div/div/div[2]//a').send_keys(Keys.END)
+            time.sleep(2)
+
 
     def follow(self):
         pass
