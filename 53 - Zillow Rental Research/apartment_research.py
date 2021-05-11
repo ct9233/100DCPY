@@ -11,3 +11,6 @@ class ApartmentResearch():
         }
         response = requests.get(url=ZILLOW_URL, headers=header).text
         self.soup = BeautifulSoup(response,'html.parser')
+        
+    def get_data(self):
+      anchor_tags_div = self.soup.find_all(name="div", class="list-card-top")
