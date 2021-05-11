@@ -13,4 +13,11 @@ class ApartmentResearch():
         self.soup = BeautifulSoup(response,'html.parser')
         
     def get_data(self):
-      anchor_tags_div = self.soup.find_all(name="div", class="list-card-top")
+        anchor_tags_div = self.soup.find_all(name="div", class_="list-card-top")
+        self.links = []
+        for div in anchor_tags_div:
+            href = div.find(name="a").get("href")
+            if "http" not in href:
+                self.links.append(f"https://www.zillow.com/{href}")
+            else:
+                self.links.append(href)
