@@ -21,3 +21,9 @@ class ApartmentResearch():
                 self.links.append(f"https://www.zillow.com/{href}")
             else:
                 self.links.append(href)
+
+        prices_div = self.soup.find_all(name="div", class_="list-card-price")
+        self.prices = [self.strip_price(div.text) for div in prices_div]
+
+        address_div = self.soup.find_all(name="address")
+        self.addresses = [div.text for div in address_div]
