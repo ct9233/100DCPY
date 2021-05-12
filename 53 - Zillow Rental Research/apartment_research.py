@@ -1,7 +1,11 @@
 from bs4 import BeautifulSoup
 import requests
+import os
+from dotenv import load_dotenv
 
-ZILLOW_URL = ''
+load_dotenv("C:/data/.env")
+
+ZILLOW_URL = os.getenv("ZILLOW_SEARCH_URL")
 
 class ApartmentResearch():
     def __init__(self):
