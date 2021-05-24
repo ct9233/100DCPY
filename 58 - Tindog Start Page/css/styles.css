@@ -52,3 +52,25 @@ h1 {
     margin-left: 40px;
     transform: rotate(25deg);
 }
+
+#features {
+    text-align: center;
+}
+
+.feature-row {
+    padding: 3rem 0;
+}
+
+.feature-row i {
+    color: #ef8172;
+    font-size: 4rem;
+    padding: 1rem;
+}
+
+.feature-row i:hover {
+    color: #ff4c68;
+}
+
+.feature-col {
+    padding: 2rem 2rem;
+}
