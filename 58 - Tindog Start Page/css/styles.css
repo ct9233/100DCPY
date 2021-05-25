@@ -17,6 +17,14 @@ h1 {
     font-weight: 900;
 }
 
+h3 {
+    font-weight: bold;
+}
+
+p {
+    color: #8f8f8f;
+}
+
 /* Navigation Bar */
 
 .navbar {
@@ -54,27 +62,19 @@ h1 {
 }
 
 #features {
+    padding: 7% 15%;
     text-align: center;
-}
-
-.feature-row {
-    padding: 3rem 0;
 }
 
 .feature-row i {
     color: #ef8172;
-    font-size: 4rem;
-    padding: 1rem;
+    margin-bottom: 1rem;
 }
 
 .feature-row i:hover {
     color: #ff4c68;
 }
 
-.feature-row h3 {
-    font-weight: 900;
-}
-
 .feature-col {
-    padding: 2rem 2.5rem;
+    padding: 5%;
 }
