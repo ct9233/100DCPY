@@ -92,7 +92,6 @@ p {
 #testimonials {
     background-color: #ef8172;
     color: #fff;
-    padding: 7% 15%;
     text-align: center;
 }
 
@@ -100,6 +99,10 @@ p {
     width: 10%;
     border-radius: 100%;
     margin: 20px;
+}
+
+.carousel-item {
+    padding: 7% 15%;
 }
 
 #press {
