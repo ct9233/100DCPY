@@ -18,5 +18,14 @@ def about():
 def contact():
     return render_template("contact.html")
 
+@app.route("/post/<int:index>")
+def show_post(index):
+    selected_post = None
+    for post in posts:
+        if post["id"] == index:
+            selected_post = post
+    return render_template("post.html", post=selected_post)
+
 if __name__ == "__main__":
     app.run(debug=True)
+
