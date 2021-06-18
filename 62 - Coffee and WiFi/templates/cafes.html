@@ -19,7 +19,15 @@
       <table class="table">
         {% for row in cafes %}
         <tr>
-          {{ row }}
+          {% for item in row %}
+          <td>
+            {% if item[0:4] == 'http' %}
+            <a href="{{ item }}">Map Link</a>
+            {% else %}
+            {{ item }}
+            {% endif %}
+          </td>
+          {% endfor %}
         </tr>
         {% endfor %}
       </table>
