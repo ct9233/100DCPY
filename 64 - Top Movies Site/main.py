@@ -107,7 +107,7 @@ def find_movie():
         )
     db.session.add(new_movie)
     db.session.commit()
-    return redirect(url_for("home"))
+    return redirect(url_for("rate_movie", id=new_movie.id))
 
 if __name__ == '__main__':
     app.run(debug=True)
